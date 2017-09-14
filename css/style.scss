@@ -1,0 +1,607 @@
+/*
+	Variables.
+*/
+
+$bodycolor: #93aed3;
+$primarycolor: #407bce;
+$secondarycolor: #72adff;
+$tertiarycolor: #91baf2;
+$headerbg: #91baf2;
+$iconfont: 'FontAwesome';
+
+/*
+	Mixins, etc.
+*/
+
+@mixin standardborder {border: 1px solid #ccc};
+@mixin stpadding {padding: 15px};
+@mixin textcenter {text-align: center;}
+@mixin primarycolorbd {border: 1px solid $primarycolor};
+@mixin secondarycolorbd {border: 1px solid $secondarycolor};
+@mixin tertiarycolorbd {border: 1px solid $tertiarycolor};
+
+
+/*---------------------------style reset------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+blockquote, q {
+	quotes: none;
+	&:before, &:after, {
+	content: '';
+	content: none;
+	}
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.row,
+.col {
+    box-sizing: border-box;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+.col {
+    position: relative;
+    float: left;
+}
+
+.col + .col {
+    margin-left: 1.6%;
+}
+
+/*---------------------------style reset ends------------------------*/
+
+/*
+	Unclassed HTML elements.
+*/
+
+body {
+	font-family: Arial;
+	color:$bodycolor;
+	line-height: 1.5;
+	font-size: 12px;
+	}
+
+h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    color: $primarycolor;
+		margin-bottom: 1.5em;
+		background-color: $headerbg;
+}
+
+h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+    color: $secondarycolor;
+		position: relative;
+    padding-top: 20px;
+		margin-bottom: 1.5em;
+}
+
+h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: $tertiarycolor;
+		margin-bottom: 1.5em;
+}
+
+h4 {
+    font-size: 24px;
+		color: $primarycolor;
+    margin-bottom: 1.5em;
+}
+
+h5 {
+    font-size: 20px;
+		color: $secondarycolor;
+    margin-bottom: 1.5em;
+}
+
+p {
+	font-size: 13px;
+	line-height: 2;
+	padding: 0 20px 20px 0;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+ul {
+   list-style-type: disc;
+   list-style-position: inside;
+}
+ol {
+   list-style-type: decimal;
+   list-style-position: inside;
+}
+ul ul, ol ul {
+   list-style-type: circle;
+   list-style-position: inside;
+   margin-left: 15px;
+}
+ol ol, ul ol {
+   list-style-type: lower-latin;
+   list-style-position: inside;
+   margin-left: 15px;
+}
+
+dl {
+    margin: 0 0 1.5em 0;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 1.5em;
+}
+
+
+/* Objects - first class elements - container, cols, rows. */
+
+
+/*------------------Media queries------------------------*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+		.container {
+	    width: auto;
+    }
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: auto;
+        float: none;
+    }
+    .col + .col {
+        margin-left: 0;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+		.container {
+	    width: auto;
+    }
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: auto;
+        float: none;
+    }
+    .col + .col {
+        margin-left: 0;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+		.container {
+	    width: auto;
+    }
+		.col-1 {width: 6.86666666667%; float: left;}
+		.col-2 {width: 15.3333333333%; float: left;}
+		.col-3 {width: 23.8%; float: left;}
+		.col-4 {width: 32.2666666667%; float: left;}
+		.col-5 {width: 40.7333333333%; float: left;}
+		.col-6 {width: 49.2%; float: left;}
+		.col-7 {width: 57.6666666667%; float: left;}
+		.col-8 {width: 66.1333333333%; float: left;}
+		.col-9 {width: 74.6%; float: left;}
+		.col-10 {width: 83.0666666667%; float: left;}
+		.col-11 {width: 91.5333333333%; float: left;}
+		.col-12 {width: 100%; float: left;}
+		.col-offset-12 {margin-left: 100%; float: left;}
+		.col-offset-11 {margin-left: 91.66666667%; float: left;}
+		.col-offset-10 {margin-left: 83.33333333%; float: left;}
+		.col-offset-9 {margin-left: 75%; float: left;}
+		.col-offset-8 {margin-left: 66.66666667%; float: left;}
+		.col-offset-7 {margin-left: 58.33333333%; float: left;}
+		.col-offset-6 {margin-left: 50%; float: left;}
+		.col-offset-5 {margin-left: 41.66666667%; float: left;}
+		.col-offset-4 {margin-left: 33.33333333%; float: left;}
+		.col-offset-3 {margin-left: 25%; float: left;}
+		.col-offset-2 {margin-left: 16.66666667%; float: left;}
+		.col-offset-1 {margin-left: 8.33333333%; float: left;}
+		.col-offset-0 {margin-left: 0; float: left;}
+		.navbar-toggle {
+			display: none;
+		}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.container {
+		width: auto;
+	}
+		.col-1 {width: 6.86666666667%; float: left;}
+		.col-2 {width: 15.3333333333%; float: left;}
+		.col-3 {width: 23.8%; float: left;}
+		.col-4 {width: 32.2666666667%; float: left;}
+		.col-5 {width: 40.7333333333%; float: left;}
+		.col-6 {width: 49.2%; float: left;}
+		.col-7 {width: 57.6666666667%; float: left;}
+		.col-8 {width: 66.1333333333%; float: left;}
+		.col-9 {width: 74.6%; float: left;}
+		.col-10 {width: 83.0666666667%; float: left;}
+		.col-11 {width: 91.5333333333%; float: left;}
+		.col-12 {width: 100%; float: left;}
+		.col-offset-12 {margin-left: 100%; float: left;}
+		.col-offset-11 {margin-left: 91.66666667%; float: left;}
+		.col-offset-10 {margin-left: 83.33333333%; float: left;}
+		.col-offset-9 {margin-left: 75%; float: left;}
+		.col-offset-8 {margin-left: 66.66666667%; float: left;}
+		.col-offset-7 {margin-left: 58.33333333%; float: left;}
+		.col-offset-6 {margin-left: 50%; float: left;}
+		.col-offset-5 {margin-left: 41.66666667%; float: left;}
+		.col-offset-4 {margin-left: 33.33333333%; float: left;}
+		.col-offset-3 {margin-left: 25%; float: left;}
+		.col-offset-2 {margin-left: 16.66666667%; float: left;}
+		.col-offset-1 {margin-left: 8.33333333%; float: left;}
+		.col-offset-0 {margin-left: 0; float: left;}
+
+		/*--nav fix--*/
+		nav li {
+		position: relative;
+		display: block;
+		float: left;
+		}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+		.container {
+	    width: auto;
+    }
+
+		.col-1 {width: 6.86666666667%; float: left;}
+		.col-2 {width: 15.3333333333%; float: left;}
+		.col-3 {width: 23.8%; float: left;}
+		.col-4 {width: 32.2666666667%; float: left;}
+		.col-5 {width: 40.7333333333%; float: left;}
+		.col-6 {width: 49.2%; float: left;}
+		.col-7 {width: 57.6666666667%; float: left;}
+		.col-8 {width: 66.1333333333%; float: left;}
+		.col-9 {width: 74.6%; float: left;}
+		.col-10 {width: 83.0666666667%; float: left;}
+		.col-11 {width: 91.5333333333%; float: left;}
+		.col-12 {width: 100%; float: left;}
+		.col-offset-12 {margin-left: 100%; float: left;}
+		.col-offset-11 {margin-left: 91.66666667%; float: left;}
+		.col-offset-10 {margin-left: 83.33333333%; float: left;}
+		.col-offset-9 {margin-left: 75%; float: left;}
+		.col-offset-8 {margin-left: 66.66666667%; float: left;}
+		.col-offset-7 {margin-left: 58.33333333%; float: left;}
+		.col-offset-6 {margin-left: 50%; float: left;}
+		.col-offset-5 {margin-left: 41.66666667%; float: left;}
+		.col-offset-4 {margin-left: 33.33333333%; float: left;}
+		.col-offset-3 {margin-left: 25%; float: left;}
+		.col-offset-2 {margin-left: 16.66666667%; float: left;}
+		.col-offset-1 {margin-left: 8.33333333%; float: left;}
+		.col-offset-0 {margin-left: 0; float: left;}
+
+		/*--nav fix--*/
+		nav li {
+    position: relative;
+    display: block;
+    float: left;
+		}
+}
+
+/*---------------------------Media queries ends--------------------*/
+
+
+
+/*
+	Components and class elements
+*/
+
+/*----global classes -------------------------------*/
+.stdborder { @include standardborder;}
+.stdpadding { @include stpadding;}
+.text-center {@include textcenter;}
+
+
+/*----navbar menu -------------------------------*/
+nav {
+	background: none;
+	border: none;
+	margin-bottom: 150px;
+	@include textcenter;
+	li {
+	    position: relative;
+	    display: block;
+	}
+}
+
+.navbar-brand {
+	img {
+		display: block;
+		@include standardborder;
+		@include stpadding;
+	}
+}
+
+.navbar-nav {
+	@include standardborder;
+	ul > li > a {
+		text-transform: uppercase;
+		line-height: 20px;
+		position: relative;
+		display: block;
+		@include stpadding;
+		&:before {
+			font-family: $iconfont;
+			content: "\f10c";
+			display: inline-block;
+			padding-right: 3px;
+			vertical-align: middle;
+			font-size: 10px;
+			font-weight: 100;
+		}
+	}
+}
+
+.icon-group {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+		@include standardborder;
+}
+
+.icon {
+    @include textcenter;
+		@include primarycolorbd;
+		font-family: $iconfont;
+    display: inline-block;
+    vertical-align: middle;
+    width: 3em;
+    height: 2.4em;
+    border-radius: 100%;
+    font-size: 12px;
+    padding-top: 9px;
+		a {
+			text-decoration: none;
+			color: $secondarycolor;
+		}
+}
+
+.facebook:after {content: "\f09a";}
+.twitter:after {content: "\f099";}
+.instagram:after {content: "\f16d";}
+
+/*----navbar menu ends -------------------------------*/
+
+
+/*----typos module-------------------------------*/
+
+#typos .row {
+	border-bottom: 1px solid #999;
+	margin-bottom: 60px;
+	padding: 0 0 40px 0;
+}
+
+/*----additonal font formatting ----*/
+
+.small {
+    font-size: .8em;
+    margin-bottom: 1.875em;
+    line-height: 1.875em;
+}
+
+.large {
+    font-size: 1.2em;
+    line-height: 2.5em;
+    margin-bottom: 1.25em;
+}
+
+.box {
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    background: #e5eCf9;
+}
+
+/*----form elements ----*/
+
+.form-elememts * {
+box-sizing: border-box;
+	fieldset {
+		border: none;
+		@include stpadding;
+	}
+	legend, label {
+		@include stpadding;
+		font-weight: bold;
+		.choice {
+			font-size: 0.9em;
+			font-weight: normal;
+		}
+	}
+	input[type="text"], input[type="tel"], input[type="email"], input[type="datetime-local"], select, textarea {
+		display: block;
+		width: 100%;
+		border: 1px solid #ccc;
+		font-size: 0.9em;
+		padding: 0.5em;
+	}
+	textarea {
+		height: 100px;
+	}
+	button {
+		padding: 1em;
+		border-radius: 0.5em;
+		background: #eee;
+		border: none;
+		font-weight: bold;
+		margin-top: 1em;
+		&:hover {
+			background: #ccc;
+			cursor: pointer;
+		}
+	}
+}
+
+/*----other elements ----*/
+
+table {
+    @include tertiarycolorbd;
+		display: table;
+    border-spacing: 2px;
+}
+
+tbody {
+		display: table-row-group;
+		vertical-align: middle;
+		border-color: inherit;
+}
+
+th {
+		background-color: $primarycolor;
+		color: $secondarycolor;
+		@include stpadding;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    border: 1px solid;
+		@include stpadding;
+}
+/*----typos module ends-------------------------------*/
+
+
+/*----contact module-------------------------------*/
+.contact-box {
+    margin-bottom: 45px;
+		background-color: #c8dfff;
+		input[type="text"], input[type="email"] {
+			width:100%;
+			margin-bottom: 40px;
+			padding:15px 0;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: 1px solid;
+			background-color: #c8dfff;
+		}
+		input[type="submit"] {width: 50%;
+			margin-bottom: 30px;
+			@include stpadding;
+			border: 1px solid;
+			background: none;
+			float: right;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+}
+
+#contact .info {
+	#address, #number, #email, #hours {
+		font-size: 14px;
+		padding-bottom: 40px;
+		&:before {
+				font-family: $iconfont;
+				@include stpadding;
+				color: $primarycolor;
+		}
+	}
+}
+
+
+#address:before {content: "\f041";}
+#number:before {content: "\f095";}
+#email:before {content: "\f01c";}
+#hours:before {content: "\f017";}
+
+/*----contact module ends-------------------------------*/
+
+/*----footer module-------------------------------*/
+
+footer {
+	.icon-group {
+    padding: 15px 0;
+    border: none;
+    @include textcenter;
+	}
+	.navbar-brand img {
+		border: none;
+		@include textcenter;
+	}
+	.footer-nav {
+		border-bottom: 1px solid rgba(255,255,255,0.1);
+		margin-bottom: 30px;
+		padding: 15px 0;
+		a {
+			 color: $primarycolor;
+			 text-transform: uppercase;
+			 font-size: 10px;
+			 padding: 15px 0;
+			 display: inline-block;
+	 }
+	.copyright {
+		color: $primarycolor;
+		font-size: 11px;
+		padding: 15px 0 ;
+		font-weight: lighter;
+	 }
+	}
+}
+
+/*----contact module ends-------------------------------*/
+
+/*----Style guide tags-------------------------------*/
+
+.swatch {
+    display: inline-block;
+    height: 2em;
+    width: 100%;
+    margin-right: 15px;
+    color: #fff;
+    padding: 10px;
+}
+
+/*----Style guide tags end-------------------------------*/
+
+.clear {
+    clear: both;
+}
